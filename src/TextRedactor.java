@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class TextRedactor {
     private String TEXT;
-    private String SUBSIR;
+    private final String SUBSIR;
     public TextRedactor(String TEXT, String SUBSIR){
         this.TEXT = TEXT;
         this.SUBSIR = SUBSIR;
@@ -11,9 +11,9 @@ public class TextRedactor {
     public void redactare(){
         char caracter;
         int length = TEXT.length();
-        System.out.println("Introduceti caracterul dupa care se va introduce subsirul introdus: ");
         Scanner sd = new Scanner(System.in);
         do {
+            System.out.println("Introduceti caracterul dupa care se va introduce subsirul introdus: ");
             caracter = sd.next().charAt(0);
             for(int i = 0; i < TEXT.length(); i++){
                 if(caracter == TEXT.charAt(i)){
@@ -22,7 +22,7 @@ public class TextRedactor {
             }
             if(length == TEXT.length()){
                 System.out.println("Caracterul introdus nu a fost gasit!!");
-                return;
+                continue;
             }
             System.out.println(TEXT);
         }while(length == TEXT.length());
